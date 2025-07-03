@@ -2,20 +2,21 @@
 
 Static, [Hugo-based](https://gohugo.io) home of Solus and its projects. This website makes use of:
 
-1. A custom theme, [`solus-hugo-theme`](https://github.com/getsolus/solus-hugo-theme).
-2. Website content itself, including blog posts, in `content`.
+1. A custom theme, [`solus-hugo-theme`](themes/solus).
+2. Website content itself, including blog posts, in [`content`](content).
 
-**Note:** SASS styling is provided inside the Hugo themes and is built upon [`solbit`](https://github.com/getsolus/solbit).
+> [!Note]
+> SASS styling is provided inside the Hugo themes and is built upon [`solbit`](https://github.com/getsolus/solbit).
 
 ## Creation
 
 ### New Post
 
 To create a new post, change to the main directory of this repo (solus-site.github.io).
-From there, call `hugo new PATH`. The `PATH` format is `blog/year/month/post-title/post-title.md`.
+From there, call `hugo new PATH`. The `PATH` format is `blog/year/month/post-title/index.md`.
 
-For instance, to create a blog post for Feb. 2023 with the name "Welcome To The New Site", you would use: `hugo new blog/2023/02/welcome-to-the-new-site/welcome-to-the-new-site.md`.
-This would create `content/blog/2023/02/welcome-to-the-new-site/welcome-to-the-new-site.md`.
+For instance, to create a blog post for Feb. 2023 with the name "Welcome To The New Site", you would use: `hugo new blog/2023/02/welcome-to-the-new-site/index.md`.
+This would create `content/blog/2023/02/welcome-to-the-new-site/index.md`.
 
 The markdown file will be created with our default configuration, which you can update as necessary. For metadata, most fields are self-explanatory.
 
@@ -75,19 +76,38 @@ For instance, Mailgun templates use the desktop collage graphic. Please coordina
 
 ### Setup
 
-To set up your Solus system for developing the website, you first need to ensure you have the necessary dependencies installed. Run `make setup` to install the necessary dependencies as well as init git submodules.
+To set up your Solus system for developing the website, you first need to ensure you have the necessary dependencies installed. You'll need:
 
-Next, run `make sync` to update the Hugo themes.
+- `hugo`
+- `sassc`
+- Optionally, install `go-task` to simplify running the website locally, or deploying it to production.
+
+You can install these on Solus by running:
+
+```bash
+sudo eopkg install hugo sassc go-task
+```
 
 ### Local Server
 
-You can start up a local server by calling `make local` in the `solus-site` directory. This will expose the site on `http://127.0.0.1:1313`. Use this to see your changes and make sure things look as you expect before submitting a pull request.
+You can start up a local server by running the task:
 
-**Note:** You will not need to restart the server when doing changes. Hugo does file watching across all the things.
+```bash
+go-task local
+```
+
+Use this to see your changes and make sure things look as you expect before submitting a pull request.
+
+> [!Note]
+> You will not need to restart the server when doing changes. Hugo does file watching across all the things.
 
 ### Deployment
 
-Merge the `main` branch into `deploy` and push.
+Run the task to deploy the website via Github Pages.
+
+```bash
+go-task deploy
+```
 
 ### Styling
 

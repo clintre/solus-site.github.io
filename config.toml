@@ -13,7 +13,7 @@ defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 googleanalytics = "UA-Not-Yet"
 metaDataFormat = "toml"
-paginate = 5
+pagination.pagerSize = 5
 theme = ["blog", "solus"]
 enableInlineShortcodes = true
 
@@ -22,14 +22,14 @@ enableInlineShortcodes = true
 [params]
 	domain = "getsol.us"
 	category = ["budgie", "infrastructure", "news", "packages", "partners", "plans", "releases", "security", "roundup", "twis"]
-	copyright = "2024"
+	copyright = "2025"
 
 [params.menus]
-	main = [ "home", "about", "blog", "download", "dev_tracker", "forums", "funding", "help", "matrix"]
+	main = [ "home", "about", "blog", "download", "dev_tracker", "forums", "funding", "help", "matrix", "security"]
 	footer = [ "solus", "social", "support", "press"]
 	solus = [ "about", "download", "experiences",  "technologies" ]
 	social = [ "facebook", "mastodon", "reddit", "twitch"]
-	support = ["dev_tracker", "forums", "funding", "help", "matrix"]
+	support = ["dev_tracker", "forums", "funding", "help", "matrix", "security"]
 	press = ["branding", "press"]
 
 [params.menuurls]
@@ -46,10 +46,11 @@ enableInlineShortcodes = true
 	funding = "https://opencollective.com/getsolus"
 	get_involved = "/help/contributing/getting-involved/"
 	help = "https://help.getsol.us/"
-	mastodon = "https://fosstodon.org/@Solus"
+	mastodon = "https://floss.social/@getsolus"
 	matrix = "https://matrix.to/#/#solus:matrix.org"
 	press = "press"
 	reddit = "https://www.reddit.com/r/SolusProject"
+	security = "https://github.com/getsolus/packages/blob/main/SECURITY.md"
 	support_us = "/help/contributing/getting-involved/"
 	team = "/solus/team"
 	technologies = "/solus/technologies"
